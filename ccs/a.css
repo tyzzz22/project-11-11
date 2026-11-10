@@ -1,0 +1,390 @@
+:root {
+  --primary-mango: #e85d04;      /* 熱帶芒果橘 */
+  --primary-emerald: #00664c;    /* 濃郁翡翠綠 */
+  --accent-gold: #b87305;        /* 復古暖金 */
+  --bg-cream: #fbf9f4;           /* 柔和奶油米白底色 */
+  --card-white: #ffffff;         /* 純白高對比卡片底色 */
+  --text-main: #1e293b;          /* 極清晰深炭灰內文（加深！） */
+  --text-muted: #475569;         /* 清晰次要文字 */
+  --border-color: #cbd5e1;       /* 清晰邊框線條 */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-main);
+  line-height: 1.8;
+  /* 南洋藤編/度假微細紋理背景 */
+  background-image: radial-gradient(rgba(0, 102, 76, 0.04) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* ===== 頂部導覽列 ===== */
+header {
+  background: var(--primary-emerald);
+  color: #fff;
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 4px solid var(--primary-mango);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+header .logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+header .logo span {
+  font-size: 0.85rem;
+  background: var(--primary-mango);
+  color: #fff;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  margin-left: 0.6rem;
+  font-weight: 600;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+nav a:hover, nav a.active {
+  color: #ffedd5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ===== 版面架構 ===== */
+.container {
+  display: flex;
+  max-width: 1280px;
+  margin: 2.5rem auto;
+  gap: 2.5rem;
+  padding: 0 1.5rem;
+}
+
+/* ===== 左側邊欄 ===== */
+aside {
+  width: 290px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.side-menu, .side-box {
+  background: var(--card-white);
+  border-radius: 12px;
+  padding: 1.6rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.side-menu h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: var(--primary-emerald);
+  border-bottom: 2px solid var(--primary-mango);
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.side-menu .nav-group {
+  margin-bottom: 1.2rem;
+}
+
+.side-menu h4 {
+  font-size: 0.85rem;
+  color: var(--primary-mango);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding-left: 0.4rem;
+}
+
+.side-menu li {
+  margin-bottom: 0.4rem;
+}
+
+.side-menu a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: block;
+}
+
+.side-menu a:hover {
+  color: var(--primary-emerald);
+  transform: translateX(4px);
+}
+
+.side-box {
+  background: #f0fdf4;
+  border-left: 5px solid var(--primary-emerald);
+}
+
+.side-box h4 {
+  color: var(--primary-emerald);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.side-box p {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.side-box .badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: var(--primary-emerald);
+  border: 1px solid #86efac;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  margin-right: 0.3rem;
+  margin-top: 0.3rem;
+  font-weight: 600;
+}
+
+/* ===== 中間主要區域 ===== */
+main {
+  flex-grow: 1;
+}
+
+section {
+  scroll-margin-top: 100px;
+  margin-bottom: 3.5rem;
+}
+
+/* Hero 首頁大橫幅：保留大標題原本好看的背景，但把文字加粗加亮確保看得清楚 */
+.hero {
+  background: linear-gradient(135deg, var(--primary-emerald), #044e3b);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 3.5rem 3rem;
+  box-shadow: 0 10px 25px rgba(0, 102, 76, 0.25);
+  border-bottom: 6px solid var(--primary-mango);
+  position: relative;
+}
+
+.hero h2 {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #f1f5f9;
+  font-weight: 500;
+}
+
+/* 區塊標題設計 */
+.section-title {
+  margin-bottom: 1.5rem;
+  padding-left: 0.8rem;
+  border-left: 5px solid var(--primary-mango);
+}
+
+.section-title h2 {
+  color: var(--primary-emerald);
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* 影片播放器 */
+video {
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  box-shadow: var(--shadow);
+  background: #000;
+  margin-top: 1rem;
+}
+
+/* ===== 網格與卡片設計（改為純白底色，字體極清晰） ===== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+.card {
+  background: var(--card-white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-color: var(--primary-emerald);
+}
+
+.card .tag, .card .scene-tag {
+  font-size: 0.75rem;
+  background: #fff7ed;
+  color: var(--primary-mango);
+  border: 1px solid #ffedd5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  margin-bottom: 0.6rem;
+  color: var(--primary-emerald);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.card p {
+  color: var(--text-main); /* 確保內文夠深、看得清楚 */
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* 內文白底方框 */
+.content-box {
+  background: var(--card-white);
+  padding: 2.2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.content-box p {
+  margin-bottom: 1rem;
+}
+
+/* ===== 表格設計 ===== */
+.info-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.info-table th, .info-table td {
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-table th {
+  background: #f0fdf4;
+  color: var(--primary-emerald);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.info-table td {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.info-table tr:last-child td {
+  border-bottom: none;
+}
+
+.info-table tr:hover td {
+  background-color: #fafaf9;
+}
+
+/* ===== 頁尾 ===== */
+footer {
+  text-align: center;
+  padding: 2.5rem;
+  background: var(--primary-emerald);
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 4rem;
+  border-top: 4px solid var(--primary-mango);
+}
+
+/* 手機響應式適應 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+    position: static;
+  }
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  nav ul {
+    gap: 1rem;
+  }
+}
